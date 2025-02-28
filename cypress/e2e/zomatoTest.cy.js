@@ -4,7 +4,7 @@ describe('Zomato App Test Cases', () => {
   const baseUrl = 'https://www.zomato.com';
   const email = 'sasisk@zohomail.in';
   const invalidEmail = 'test@gmail.io';
-  const validOTP = 'Valid OTP';
+  
   const invalidOTP = 'invalid OTP';
 
   beforeEach(() => {
@@ -13,11 +13,11 @@ describe('Zomato App Test Cases', () => {
 
   it('TC_ZC_001: User Login with Valid Credentials', () => {
     cy.get(':nth-child(4) > .sc-3o0n99-5').click();
-    cy.get('#id-33').within(() => {
+    cy.get("#auth-login-ui").within(() => {
       cy.get('.email-login-button').click();
       cy.get('#email').type(email);
       cy.get('.send-otp-button').click();
-      cy.get('#otp').type(validOTP);
+      
       cy.get('.login-button').click();
     });
     cy.url().should('eq', `${baseUrl}/homepage`);
@@ -47,7 +47,7 @@ describe('Zomato App Test Cases', () => {
 
   it('TC_ZC_004: User Login with Invalid Phone Number', () => {
     cy.get(':nth-child(4) > .sc-3o0n99-5').click();
-    cy.get('#id-33').within(() => {
+    cy.get('#auth-login-ui').within(() => {
       cy.get('.phone-login-button').click();
       cy.get('#phone').clear();
       cy.get('.send-otp-button').click();
