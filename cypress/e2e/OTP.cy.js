@@ -18,6 +18,6 @@ describe('Automated Login Test', () => {
           cy.get('button[type="submit"]').click();
       });
       // Verify login success
-      cy.url().should('include', '/dashboard');  // Modify this based on your app's behavior after login
+      cy.url().should('include', '/homepage');   
   });
 });

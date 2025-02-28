@@ -42,7 +42,7 @@ Cypress.Commands.add('getOTPFromEmail', (serverId, inboxName) => {
         const email = response.items[0];
         
         // Assuming the OTP is in the subject or body, you need to extract it
-        const otp = email.subject.match(/\d{6}/)[0] || email.text.match(/\d{6}/)[0];  // Adjust the regex as per OTP format
+        const otp = email.subject.match(/\d{6}/)[0] || email.text.match(/\d{6}/)[0];   
         cy.wrap(otp).as('otp');  // Store OTP in Cypress alias for later use
     });
 });
